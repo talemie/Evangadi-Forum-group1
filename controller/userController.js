@@ -1,4 +1,4 @@
-const dbconnection = require("../db/dbconfig");
+const dbconnection = require("../db/dbConfig");
 
 const bcrypt = require("bcrypt");
 const {StatusCodes} = require("http-status-codes")
