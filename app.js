@@ -3,13 +3,13 @@ const app = express();
 const port = 7700;
 
 // db connection
-const dbconnection = require("./db/dbconfig");
+const dbconnection = require("./db/dbConfig");
 
 // use routes middleware file
 const useRoutes = require("./routes/userRoute");
 
 // questions routes middleware file
-// const questionsRoutes = require("./routes/questionRoute");
+const questionsRoutes = require("./routes/questionRoute");
 // authentication middleware file
 const authMiddleware = require("./middleware/authMiddleware");
 
@@ -22,7 +22,7 @@ app.use("/api/users", useRoutes);
 
 // questions routes middleware??
 
-// app.use("/api/questions",authMiddleware, questionsRoutes);
+app.use("/api/questions",authMiddleware, questionsRoutes);
 
 // answers routes middleware??
 
