@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const {askQuestion} =require('../controller/questionController')
-router.get("/all-questions",(req,res)=>{
-    res.send("all questions")
-})
+const {
+	askQuestion,
+	getQuestion,
+} = require("../controller/questionController");
+router.get("/all-questions", getQuestion);
 
-router.post("/ask-question",askQuestion)
-module.exports=router
+router.post("/ask-question", askQuestion);
+module.exports = router;
