@@ -29,5 +29,19 @@ const askQuestion = async (req, res) => {
 			.json({ msg: "something went wrong, try again later!" });
 	}
 };
+//get quetion functionalty
+const getQuestion= async(req,res)=>{
+try {
+	const fechquestion = `SELECT questions.*,users.username FROM questions LEFT JOIN users ON questions.userid = users.userid order by id desc `;
+	const [response] = await dbconnection.query( fechquestion) 
+	
+	return res.status(StatusCodes.OK).json({ response });
+} catch (error) {
+	console.log(error.message);
+	return res
+		.status(StatusCodes.INTERNAL_SERVER_ERROR)
+		.json({ msg: "something went wrong, try again later!" });
+}
+}
 
-module.exports = { askQuestion };
+module.exports = { askQuestion, getQuestion };
