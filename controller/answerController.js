@@ -21,7 +21,22 @@ async function postanswer(req, res) {
 	}
 }
 
+async function getanswer(req, res) {
+	const questionid = req.query.questionid;
 
+	try {
+		const readAllAnswers = `SELECT answers.*,users.username FROM answers LEFT JOIN users ON answers.userid = users.userid where answers.questionid=? `;
 
+		const [response] = await dbconnection.query(readAllAnswers, [questionid]);
+		console.log(response);
 
-module.exports = { postanswer };
+		return res.status(StatusCodes.OK).json({ response });
+	} catch (error) {
+		console.log(error.message);
+		return res
+			.status(StatusCodes.INTERNAL_SERVER_ERROR)
+			.json({ msg: "something went wrong, try again later!" });
+	}
+}
+
+module.exports = { postanswer, getanswer };
