@@ -3,12 +3,12 @@ import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../CommonResources/axios";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-function Login() {
+function Login({ toggleComponent }) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
-	// const navigate=useNavigate()
+	const navigate=useNavigate()
 
 	// getting the values of email and password
 
@@ -41,6 +41,7 @@ function Login() {
 			});
 			console.log(data);
 			localStorage.setItem("token", data.token);
+			navigate('/home')
 		} catch (error) {
 			setError(error.response.data);
 			console.log(error.response.data);
@@ -58,7 +59,9 @@ function Login() {
 			<div className="flex flex-wrap mb-4">
 				<p className="text-center w-full lg:w-1/2">don't have an account ?</p>
 				<p className="text-center text-orange-500 w-full lg:w-1/2 hover:underline">
-					<a to="#"> creat a new account </a>
+					<Link to="#" onClick={() => toggleComponent("signup")}>
+						Create a new account
+					</Link>
 				</p>
 			</div>
 			{error && <div className="text-red-400">{error.msg}</div>}
@@ -80,7 +83,7 @@ function Login() {
 						className={`w-full border p-2 border-gray-300 rounded-md ${
 							error && !email ? "bg-red-200" : ""
 						}`}
-						type={showPassword?'text':'password'}
+						type={showPassword ? "text" : "password"}
 						placeholder="password"
 					/>
 					<span className="show-hide-button hover:text-orange-400 opacity-50">
