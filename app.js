@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors=require('cors')
 const port = 7700;
 
 // db connection
@@ -15,6 +16,9 @@ const authMiddleware = require("./middleware/authMiddleware");
 
 // answer route middlewaree 
 const answerRoutes = require("./routes/answerRoute")
+
+// using cors middleware
+app.use(cors())
 
 // json middleware to extract json data
 app.use(express.json());
