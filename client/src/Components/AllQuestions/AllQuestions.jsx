@@ -5,7 +5,7 @@ import axios from '../../CommonResources/axios'
 function AllQuestions() {
     const [questions, setQuestions] = useState([]);
     const token =
-			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJvYiIsInVzZXJpZCI6MiwiaWF0IjoxNzA0MTE4OTk1LCJleHAiOjE3MDQyMDUzOTV9.wwxrUebMelsL1TenizCADps5EspTW0cvU5eGi8Tuv8g";
+			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJvYiIsInVzZXJpZCI6MiwiaWF0IjoxNzA0MjA3NDE2LCJleHAiOjE3MDQyOTM4MTZ9.exLuPw23X7Z78DiiS4u2_M804Nn7GxItpsqtrdccrAA";
     useEffect(() => {
 			const fetchQuestions = async () => {
 				try {

@@ -44,4 +44,22 @@ try {
 }
 }
 
-module.exports = { askQuestion, getQuestion };
+// fetch a single question
+async function getSingleQuestion(req, res) {
+	// res.json({ msg: "all questions" });
+	try {
+		const {questionid}=req.query
+		const fetchSingleQuestion = `SELECT questions.*,users.username FROM questions left join users ON questions.userid=users.userid where questionid=? order by id desc `;
+		const questions = await dbconnection.query(fetchSingleQuestion, [
+			questionid,
+		]);
+		return res.status(StatusCodes.OK).json({ questions: questions[0] });
+	} catch (error) {
+		console.log(error.message);
+		return res
+			.status(500)
+			.json({ msg: "something went wrong, try again later!" });
+	}
+}
+
+module.exports = { askQuestion, getQuestion, getSingleQuestion };
