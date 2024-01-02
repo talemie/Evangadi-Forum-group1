@@ -1,6 +1,7 @@
 
 import './App.css'
 import Footer from './Components/Footer/Footer'
+import Login from './Components/Login/Login'
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
   return (
     
     <>
-      
+      <Login/>
       <Footer/>
     </>
     
