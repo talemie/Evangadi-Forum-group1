@@ -11,8 +11,6 @@ async function authMiddleware(req, res, next) {
 	}
 
 	const token = authHeader.split(" ")[1];
-	console.log(authHeader);
-	console.log(token);
 	try {
 		const { username, userid } = jwt.verify(token, "secret");
 		// create custom user property

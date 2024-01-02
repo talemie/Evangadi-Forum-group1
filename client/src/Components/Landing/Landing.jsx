@@ -1,19 +1,45 @@
 import React, { useState } from "react";
+import Login from "../Login/Login";
 function Landing() {
 	// sliding effect
-	// const [activeComponent, setActiveComponent] = useState("login");
+	const [activeComponent, setActiveComponent] = useState("login");
 
-	// const toggleComponent = (component) => {
-	// 	setActiveComponent(component);
-	// };
+	const toggleComponent = (component) => {
+		setActiveComponent(component);
+	};
 
 	return (
-		<div className="home pb-5">
+		<div className="home bg-cover bg-no-repeat bg-[url('https://www.evangadi.com/themes/humans/assets/images/misc/bg-svg-f.svg')] bg-gray-200 h-full pb-5">
 			<div className="container">
-				<div className="flex home__internal">
-					<div><h2>Login/Sign up </h2></div>
-					<div className="col-md-6 mt-1 sm:mt-7">
-						<div className="md:mx-2">
+				<div className="flex flex-wrap justify-between w-85 h-full mx-40 pt-40">
+					<div
+						className={`w-full lg:w-1/2  overflow-hidden relative  bg-white shadow-lg p-3 `}
+					>
+						<div
+							className={` transition-transform duration-700 transform ${
+								activeComponent == "login"
+									? "translate-x-0"
+									: "translate-x-full"
+							}`}
+						>
+							{activeComponent === "login" && (
+								<Login toggleComponent={toggleComponent} />
+							)}
+						</div>
+						<div
+							className={`     transition-transform duration-700 transform ${
+								activeComponent == "signup"
+									? "translate-x-0"
+									: "translate-x-full"
+							}`}
+						>
+							{activeComponent === "signup" && (
+								<Login toggleComponent={toggleComponent} />
+							)}
+						</div>
+					</div>
+					<div className="w-full lg:w-1/2 mt-1 sm:mt-7">
+						<div className="md:mx-2 lg:px-5">
 							<h3 className="text-orange-400 text-2xl">About</h3>
 							<h1 className="text-3xl my-3">
 								Evangadi <br />
