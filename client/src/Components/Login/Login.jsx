@@ -8,7 +8,7 @@ function Login({ toggleComponent }) {
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
-	// const navigate=useNavigate()
+	const navigate=useNavigate()
 
 	// getting the values of email and password
 
@@ -41,6 +41,7 @@ function Login({ toggleComponent }) {
 			});
 			console.log(data);
 			localStorage.setItem("token", data.token);
+			navigate('/home')
 		} catch (error) {
 			setError(error.response.data);
 			console.log(error.response.data);
