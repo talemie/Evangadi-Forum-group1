@@ -32,7 +32,7 @@ const askQuestion = async (req, res) => {
 //get quetion functionalty
 const getQuestion= async(req,res)=>{
 try {
-	const fechquestion = `SELECT questions.*,users.username FROM questions LEFT JOIN users ON questions.userid = users.userid order by id desc `;
+	const fechquestion = `SELECT questions.title,questions.questionid,users.username FROM questions LEFT JOIN users ON questions.userid = users.userid order by id desc `;
 	const [response] = await dbconnection.query( fechquestion) 
 	
 	return res.status(StatusCodes.OK).json({ response });
