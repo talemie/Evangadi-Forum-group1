@@ -31,15 +31,15 @@ function MiniSideMenu() {
 					<CloseIcon />
 				</button>
 				<ul>
-					<li>
+					<li className="hover:text-orange-500">
 						<Link to="/home">Home</Link>
 					</li>
-					<li>
+					<li className="hover:text-orange-500">
 						<Link to="#">How it works</Link>
 					</li>
-					<li>
+					<li className="hover:text-orange-500">
 						<Link to="#" className="signin" onClick={logingOut}>
-							{!token ? "SIGN IN" : "SIGN OUT"}
+							{!token ? "SIGN IN" : "LOG OUT"}
 						</Link>
 					</li>
 				</ul>
