@@ -4,10 +4,10 @@ import { FaUserAlt } from "react-icons/fa";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { MdNavigateNext } from "react-icons/md";
 import axios from '../../CommonResources/axios'
+import { Link } from 'react-router-dom';
 function AllQuestions() {
     const [questions, setQuestions] = useState([]);
-    const token =
-			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJvYiIsInVzZXJpZCI6MiwiaWF0IjoxNzA0MjA3NDE2LCJleHAiOjE3MDQyOTM4MTZ9.exLuPw23X7Z78DiiS4u2_M804Nn7GxItpsqtrdccrAA";
+    const token = localStorage.getItem("token");
     useEffect(() => {
 			const fetchQuestions = async () => {
 				try {
@@ -30,8 +30,8 @@ function AllQuestions() {
   return (
 		<>
 			{questions?.map((question, i) => (
-				<div key={i}>
-					<div className="each__question  border-t border-gray-300 py-4 hover:bg-slate-200">
+				<Link to={`/question/${question.questionid}`} key={i}>
+					<div className="each__question  border-t border-gray-300 py-4 hover:bg-slate-200   ">
 						<div className="flex justify-between pl-4">
 							<div className="flex justify-between">
 								<div className="hover:text-black w-8 h-8 mr-10">
@@ -45,7 +45,7 @@ function AllQuestions() {
 						</div>
 						<p className="pl-4 ml-3 mt-6">{question?.username}</p>
 					</div>
-				</div>
+				</Link>
 			))}
 		</>
 	);
