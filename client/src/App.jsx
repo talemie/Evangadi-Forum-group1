@@ -12,7 +12,9 @@ const AppStateContext = createContext();
 function App() {
 		const [user, setUser] = useState();
 		const token = localStorage.getItem("token");
-		const navigate = useNavigate();
+	const navigate = useNavigate();
+
+	// checking the user on every page to protect the route functionality
 		const checkUser = async () => {
 			try {
 				const { data } = await axios.get("/users/check", {
@@ -29,6 +31,7 @@ function App() {
 		useEffect(() => {
 			checkUser();
 		}, []);
+	
 	return (
 		<AppStateContext.Provider value={[user, setUser]}>
 			<Routes>
