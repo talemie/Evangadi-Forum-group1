@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { FaUserAlt } from "react-icons/fa";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { MdNavigateNext } from "react-icons/md";
 import axios from '../../CommonResources/axios'
 function AllQuestions() {
     const [questions, setQuestions] = useState([]);
     const token =
-			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJvYiIsInVzZXJpZCI6MiwiaWF0IjoxNzA0MTE4OTk1LCJleHAiOjE3MDQyMDUzOTV9.wwxrUebMelsL1TenizCADps5EspTW0cvU5eGi8Tuv8g";
+			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJvYiIsInVzZXJpZCI6MiwiaWF0IjoxNzA0MjA3NDE2LCJleHAiOjE3MDQyOTM4MTZ9.exLuPw23X7Z78DiiS4u2_M804Nn7GxItpsqtrdccrAA";
     useEffect(() => {
 			const fetchQuestions = async () => {
 				try {
@@ -33,15 +35,15 @@ function AllQuestions() {
 						<div className="flex justify-between pl-4">
 							<div className="flex justify-between">
 								<div className="hover:text-black w-8 h-8 mr-10">
-									<AccountCircleIcon className=" " />
+									<FaUserAlt className="text-6xl border border-black rounded-full p-2 hover:bg-black hover:text-white " />
 								</div>
 								<div className="ml-10">{question.title}</div>
 							</div>
 							<div>
-								<KeyboardArrowRightIcon className="" />
+								<MdNavigateNext className="text-4xl" />
 							</div>
 						</div>
-						<p className="pl-4">{question?.username}</p>
+						<p className="pl-4 ml-3 mt-6">{question?.username}</p>
 					</div>
 				</div>
 			))}
