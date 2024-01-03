@@ -1,9 +1,0 @@
-.password-input{
-    position: relative
-}
-.show-hide-button{
-    position: absolute;
-    right: 5px;
-    top: 25%;
-    transform: translate(-50%);
-}

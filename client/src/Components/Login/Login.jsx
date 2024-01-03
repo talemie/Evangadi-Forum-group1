@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../CommonResources/axios";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { FiEye } from "react-icons/fi";
+import { LuEyeOff } from "react-icons/lu";
 function Login({ toggleComponent }) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -77,25 +77,28 @@ function Login({ toggleComponent }) {
 					/>
 				</div>
 				<br />
-				<div className="password-input">
+				<div className="relative">
 					<input
 						onChange={handlePasswordChange}
 						className={`w-full border p-2 border-gray-300 rounded-md ${
-							error && !email ? "bg-red-200" : ""
+							error && !password ? "bg-red-200" : ""
 						}`}
 						type={showPassword ? "text" : "password"}
 						placeholder="password"
 					/>
-					<span className="show-hide-button hover:text-orange-400 opacity-50">
-						<VisibilityOffIcon onClick={showHidePassowrd} />
+					<span
+						className="absolute right-1 top-1/4 transform -translate-x-1/2 hover:text-orange-400 opacity-50"
+						onClick={showHidePassowrd}
+					>
+						{showPassword?<LuEyeOff/>:<FiEye/>}
 					</span>
 				</div>
-				<div className="text-end mt-3 mb-5 hover:underline">
+				<div className="text-end mt-10  hover:underline">
 					<a className="text-orange-500 ">Forgot password?</a>
 				</div>
-				<div className="flex justify-center">
+				<div className="flex justify-center mt-10">
 					<button
-						className="px-14 py-2 my-4 text-center text-white text-2xl bg-blue-500 rounded-md hover:bg-orange-400 w-full"
+						className="px-14 py-2 my-4 mb-10 text-center text-white text-2xl bg-blue-500 rounded-md hover:bg-orange-400 w-full"
 						type="submit"
 					>
 						Login

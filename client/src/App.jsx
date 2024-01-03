@@ -17,8 +17,7 @@ function App() {
 			{/* <Login /> */}
 
 			<Routes>
-
-        <Route
+				{/* <Route
           path="/register"
           element={
             <>  
@@ -26,7 +25,7 @@ function App() {
               <Footer/> 
             </> 
             }
-          />
+          /> */}
 
 				<Route
 					path="/"
@@ -42,7 +41,7 @@ function App() {
 					path="/home"
 					element={
 						<>
-					
+							<Header />
 							<Home />
 							<Footer />
 						</>
