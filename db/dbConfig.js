@@ -1,10 +1,12 @@
 const mysql2 = require("mysql2");
-
+require('dotenv').config();
+console.log(process.env.DATABASE)
 const dbconnection = mysql2.createPool({
-	user: "evangadiadmin",
-	database: "evangadiforum",
+	user: process.env.USER,
+	database: process.env.DATABASE,
 	host: "localhost",
-	password: "123456",
-	connectionLimit: 10,
+	password: process.env.PASSWORD,
+	connectionLimit: process.env.LIMIT,
 });
-module.exports = dbconnection.promise()
+
+module.exports = dbconnection.promise();
