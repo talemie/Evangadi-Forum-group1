@@ -8,7 +8,7 @@ import Home from "./Components/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Landing from "./Components/Landing/Landing";
 import Register from './Components/Register/Register';
-
+import Header from './Components/Header/Header'
 function App() {
 
 
@@ -32,6 +32,7 @@ function App() {
 					path="/"
 					element={
 						<>
+							<Header/>
 							<Landing />
 							<Footer />
 						</>
@@ -41,6 +42,7 @@ function App() {
 					path="/home"
 					element={
 						<>
+					
 							<Home />
 							<Footer />
 						</>
