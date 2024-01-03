@@ -1,19 +1,21 @@
-import React from 'react'
-import AllQuestions from '../AllQuestions/AllQuestions';
-import { Link } from 'react-router-dom';
-import { useAppStateValue } from '../../App';
+import React from "react";
+import AllQuestions from "../AllQuestions/AllQuestions";
+import { Link } from "react-router-dom";
+import { useAppStateValue } from "../../App";
 
 function Home() {
 	const [user, setUser] = useAppStateValue();
 	return (
-		<div className="bg-slate-100 container mx-auto">
+		<div className="bg-slate-100  mt-[70px] pt-[50px] px-20">
 			<div className="">
 				<div className="container py-5 ">
 					<div className="ask__question flex justify-between mr-4">
 						<div>
-							<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
-								Ask Question
-							</button>
+							<Link to="/ask-question">
+								<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
+									Ask Question
+								</button>
+							</Link>
 						</div>
 						<h3 className="text-2xl pr-5">
 							Welcome:
@@ -34,4 +36,4 @@ function Home() {
 	);
 }
 
-export default Home
+export default Home;

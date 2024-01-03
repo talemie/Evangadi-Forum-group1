@@ -7,8 +7,8 @@ function SingleQuestion() {
 	const [[question], setQuestion] = useState([]);
 	const [answer, setAnswer] = useState([]);
 	const [error, setError] = useState("");
-    const [yourAnswer, setYourAnswer] = useState("");
-    const[success,setSucess]=useState(false)
+	const [yourAnswer, setYourAnswer] = useState("");
+	const [success, setSucess] = useState(false);
 	const answerRef = useRef(null);
 	const token = localStorage.getItem("token");
 	const { questionid } = useParams();
@@ -51,10 +51,18 @@ function SingleQuestion() {
 		fetchQuestion();
 		fetchAnswer();
 	}, []);
+
+	// limiting the users answer length
+	const maxWords = 199; // Maximum number of words allowed
 	const onchangeAnswer = (e) => {
-		setYourAnswer(e.target.value);
+		const inputValue=e.target.value
+		// const words = inputValue.trim().split(" ");
+// console.log(words)
+		// if (words.length <= maxWords) {
+		// 	setYourAnswer(inputValue);
+		// }
+		setYourAnswer(inputValue);
 	};
-	
 
 	// submit answer handler
 	const submitAnswer = async (e) => {
@@ -75,11 +83,11 @@ function SingleQuestion() {
 					"Content-Type": "application/json",
 					Authorization: `Bearer ${token}`,
 				},
-            });
-            setSucess(true);
-            setTimeout(() => {
-                setSucess(false);
-            }, 3000);
+			});
+			setSucess(true);
+			setTimeout(() => {
+				setSucess(false);
+			}, 3000);
 			fetchAnswer();
 			// clearing the answer text area after submitting the answer
 			answerRef.current.value = "";
@@ -89,22 +97,20 @@ function SingleQuestion() {
 		}
 	};
 	return (
-		<div className=" bg-slate-100">
-			<div className="container mx-auto">
-				<div className=" border-b border-gray-300 pb-4">
+		<div className=" bg-slate-100 mt-[70px] pt-[50px]">
+			<div className=" px-20">
+				<div className="  pb-4">
 					<h1 className="text-3xl py-4 ">QUESTION</h1>
 					<div>
-						<ArrowCircleRightIcon />
-						<span className="text-3xl font-bold py-2 pl-2 border-b border-orange-300 ">
+						<ArrowCircleRightIcon className="text-blue-600" />
+						<span className="text-3xl text-amber-950 font-bold font-mono py-2 pl-2  border-b-4 border-orange-400  ">
 							{question?.title}
 						</span>
-						<p className="text-lg font-bold pl-5 pt-3 ml-5  ">
-							{question?.description}
-						</p>
+						<p className="text-lg  pl-5 pt-3 ml-5  ">{question?.description}</p>
 					</div>
 				</div>
-				<div className="my-4">
-					<h1 className="text-3xl  font-bold pb-3">
+				<div className="my-5">
+					<h1 className="text-3xl  font-bold font-mono pb-2 border-t border-b py-4 border-gray-300">
 						Answer From The Community
 					</h1>
 
@@ -124,7 +130,9 @@ function SingleQuestion() {
 					</div>
 				</div>
 				<form onSubmit={submitAnswer} className="mt-10">
-				{success && <p className="text-green-400 text-xl">Answer Submitted!</p>}
+					{success && (
+						<p className="text-green-400 text-xl">Answer Submitted!</p>
+					)}
 					<textarea
 						onChange={onchangeAnswer}
 						className={`w-full border border-black rounded-md p-3 my-2 ${

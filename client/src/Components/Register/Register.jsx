@@ -10,6 +10,7 @@ function Register({ toggleComponent }) {
 	// show/hide passowrd functionaity
 	const [showPassword, setShowPassword] = useState(false);
 	const [isInputFocused, setInputFocused] = useState(false);
+	const [error, setError] = useState("");
 
 	const togglePasswordVisibility = () => {
 		setShowPassword(!showPassword);
@@ -88,7 +89,8 @@ function Register({ toggleComponent }) {
 			toggleComponent("login");
 			// navigate("/login");
 		} catch (error) {
-			console.log(error.response);
+			console.log(error.response.data);
+			setError(error.response.data)
 		}
 	}
 
@@ -100,12 +102,13 @@ function Register({ toggleComponent }) {
 				</h3>
 				<div className=" w-full flex justify-center pt-2 pb-10">
 					<p className="mr-2">Already have an account?</p>
-					<p className="text-orange-400">
+					<p className="text-orange-400 hover:underline">
 						<Link to="#" onClick={() => toggleComponent("login")}>
 							Sign in
 						</Link>
 					</p>
 				</div>
+				{error&&<p className="text-red-400 text-xl text-center py-2">{error.msg}</p>}
 				<form onSubmit={handleSubmit}>
 					<input
 						ref={userNameDom}
@@ -162,19 +165,19 @@ function Register({ toggleComponent }) {
 
 					<p className="text-center mb-4">
 						I agree to the
-						<span className="text-orange-400">
-							<a href="#"> privacy policy </a>
+						<span className="text-orange-400 hover:underline">
+							<Link to="#"> privacy policy </Link>
 						</span>
-						and <span className="text-orange-400">terms of service</span>
+						and <span className="text-orange-400 hover:underline"><Link to="#">terms of service </Link></span>
 					</p>
 
-					<button className="w-full bg-blue-600  hover:bg-orange-400 mb-3 pl-4 py-2 text-base rounded-md border border-gray-400 text-white">
-						{" "}
-						Agree and Join{" "}
+					<button className="w-full bg-blue-600  hover:bg-orange-400 mb-3 pl-4 py-2 text-base rounded-md border border-gray-400 text-white ">
+						
+						Agree and Join
 					</button>
 
-					<p className="w-full  text-orange-400 text-center">
-						<a href="#">Already have an account?</a>
+					<p className="w-full  text-orange-400 text-center hover:underline">
+						<Link to="#" onClick={() => toggleComponent("login")}>Already have an account?</Link>
 					</p>
 				</form>
 			</div>

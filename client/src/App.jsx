@@ -7,6 +7,7 @@ import Header from "./Components/Header/Header";
 import SingleQuestion from "./Components/SingleQuestion/SingleQuestion";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "./CommonResources/axios";
+import AskQuestion from "./Components/AskQuestion/AskQuestion";
 // create context 
 const AppStateContext = createContext();
 function App() {
@@ -66,6 +67,15 @@ function App() {
 						</>
 					}
 				/>
+        <Route 
+        path="/ask-question" 
+        element={
+        <> 
+        <Header /> 
+        <AskQuestion/>  
+        <Footer/> 
+        </> }
+        />
 			</Routes>
 		</AppStateContext.Provider>
 	);
