@@ -90,7 +90,7 @@ function Login({ toggleComponent }) {
 						className="absolute right-1 top-1/4 transform -translate-x-1/2 hover:text-orange-400 opacity-50"
 						onClick={showHidePassowrd}
 					>
-						{showPassword?<LuEyeOff/>:<FiEye/>}
+						{showPassword ? <FiEye /> : <LuEyeOff />}
 					</span>
 				</div>
 				<div className="text-end mt-10  hover:underline">

@@ -1,14 +1,12 @@
 
-import './App.css'
 import Footer from './Components/Footer/Footer'
-import Login from './Components/Login/Login'
-import { useState } from "react";
 import "./App.css";
 import Home from "./Components/Home/Home";
 import { Route, Routes } from "react-router-dom";
 import Landing from "./Components/Landing/Landing";
 import Register from './Components/Register/Register';
 import Header from './Components/Header/Header'
+import SingleQuestion from './Components/SingleQuestion/SingleQuestion';
 function App() {
 
 
@@ -31,7 +29,7 @@ function App() {
 					path="/"
 					element={
 						<>
-							<Header/>
+							<Header />
 							<Landing />
 							<Footer />
 						</>
@@ -43,6 +41,17 @@ function App() {
 						<>
 							<Header />
 							<Home />
+							<Footer />
+						</>
+					}
+				/>
+				{/* single question route */}
+				<Route
+					path="/question/:questionid"
+					element={
+						<>
+							<Header />
+							<SingleQuestion />
 							<Footer />
 						</>
 					}

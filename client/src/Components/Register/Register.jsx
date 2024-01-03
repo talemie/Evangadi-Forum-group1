@@ -156,13 +156,12 @@ function Register({ toggleComponent }) {
 							className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center pr-6   cursor-pointer"
 							onClick={togglePasswordVisibility}
 						>
-							{showPassword ? <LuEyeOff /> : <FiEye />}
+							{showPassword ? <FiEye /> : <LuEyeOff />}
 						</div>
 					</div>
 
 					<p className="text-center mb-4">
-						
-						I agree to the 
+						I agree to the
 						<span className="text-orange-400">
 							<a href="#"> privacy policy </a>
 						</span>
