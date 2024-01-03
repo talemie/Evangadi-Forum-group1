@@ -7,7 +7,7 @@ import { GrYoutube } from "react-icons/gr";
 function Footer() {
 	return (
 		<footer style={{ backgroundColor: "#3B455A" }}>
-			<div className="container mx-auto">
+			<div className=" px-20">
 				
 						<div className="pt-16 pb-20  flex flex-wrap md:flex-nowrap justify-between  ">
 							<div className=" w-full md:w-1/3  ">

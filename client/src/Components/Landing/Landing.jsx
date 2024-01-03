@@ -10,8 +10,8 @@ function Landing() {
 	};
 
 	return (
-		<div className="home bg-cover bg-no-repeat bg-[url('https://www.evangadi.com/themes/humans/assets/images/misc/bg-svg-f.svg')] bg-gray-200 h-full pb-5">
-			<div className="container">
+		<div className="home bg-cover bg-no-repeat bg-[url('https://www.evangadi.com/themes/humans/assets/images/misc/bg-svg-f.svg')] bg-gray-200 h-full pb-5  mt-[40px]  ">
+			<div className="container mx-auto">
 				<div className="flex flex-wrap justify-between w-85 h-full mx-40 pt-40 ">
 					<div
 						className={`w-full lg:w-1/2  overflow-hidden relative  bg-white shadow-lg p-3 rounded-lg h-550`}
