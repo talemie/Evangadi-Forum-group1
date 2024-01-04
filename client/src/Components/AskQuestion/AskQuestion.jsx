@@ -66,9 +66,10 @@ function AskQuestion() {
 		<>
 			<div className=" bg-slate-100  mt-[70px] pt-[50px] px-20">
 				<div className="container mx-auto px-6 ">
-					<div className=" ">
-						<h3 className=" text-2xl text-left font-mono pt-10 pb-4 font-bold border-b  border-orange-500 w-full ">
+					<div className="group">
+						<h3 className=" text-2xl text-left font-mono pt-10 pb-4 font-bold  relative   ">
 							Steps To Write A Good Question.
+							<span className="absolute bottom-0 left-0 w-1/3 h-1 bg-orange-500 transition-all duration-500 group-hover:w-1/2"></span>
 						</h3>
 						<div className="pl-30 ml-5">
 							<p className="flex items-center w-full py-2 font-mono text-center">
@@ -103,7 +104,7 @@ function AskQuestion() {
 									Post request successful!
 								</p>
 							)}
-							<div >
+							<div>
 								<input
 									ref={QuestionTitleDom}
 									className="w-full  py-4 pl-6 rounded-md border border-gray-600 "

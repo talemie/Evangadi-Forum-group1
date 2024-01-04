@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useAppStateValue } from "../../App";
 
 function Home() {
-	const [user, setUser] = useAppStateValue();
+	// const [user, setUser] = useAppStateValue();
+	const username = localStorage.getItem("username");
 	return (
 		<div className="bg-slate-100  mt-[70px] pt-[50px] px-20">
 			<div className="">
@@ -19,7 +20,7 @@ function Home() {
 						</div>
 						<h3 className="text-2xl pr-5">
 							Welcome:
-							<span className="username text-red-400"> {user?.username}</span>
+							<span className="username text-red-400"> {username}</span>
 						</h3>
 					</div>
 					<div className="search__question pt-5 pb-3 pr-5 mr-4">

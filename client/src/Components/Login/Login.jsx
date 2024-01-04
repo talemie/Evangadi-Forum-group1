@@ -41,6 +41,7 @@ function Login({ toggleComponent }) {
 			});
 			console.log(data);
 			localStorage.setItem("token", data.token);
+			localStorage.setItem("username", data.username);
 			navigate('/home')
 		} catch (error) {
 			setError(error.response.data);
