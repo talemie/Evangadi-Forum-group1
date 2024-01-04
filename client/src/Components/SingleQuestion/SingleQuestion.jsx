@@ -9,6 +9,7 @@ function SingleQuestion() {
 	const [error, setError] = useState("");
 	const [yourAnswer, setYourAnswer] = useState("");
 	const [success, setSucess] = useState(false);
+	const [isLong,setIsLong]=useState(false)
 	const answerRef = useRef(null);
 	const token = localStorage.getItem("token");
 	const { questionid } = useParams();
@@ -53,15 +54,16 @@ function SingleQuestion() {
 	}, []);
 
 	// limiting the users answer length
-	const maxWords = 199; // Maximum number of words allowed
+	const maxCharacters = 200; // Maximum number of words allowed
 	const onchangeAnswer = (e) => {
 		const inputValue=e.target.value
-		// const words = inputValue.trim().split(" ");
-// console.log(words)
-		// if (words.length <= maxWords) {
-		// 	setYourAnswer(inputValue);
-		// }
-		setYourAnswer(inputValue);
+		if (inputValue.length <= maxCharacters) {
+			setIsLong(false);
+			setYourAnswer(inputValue);
+		} else {
+			setIsLong(true)
+		}
+		
 	};
 
 	// submit answer handler
@@ -133,11 +135,12 @@ function SingleQuestion() {
 					{success && (
 						<p className="text-green-400 text-xl">Answer Submitted!</p>
 					)}
+					{isLong && <p className="text-red-300">Your answer is too long! Only 200 characters allowed.</p>}
 					<textarea
 						onChange={onchangeAnswer}
-						className={`w-full border border-black rounded-md p-3 my-2 ${
+						className={`w-full border border-black rounded-md p-3 my-2 font-mono ${
 							!yourAnswer && error ? "bg-red-200" : ""
-						}`}
+						} ${isLong?'bg-red-50':''}`}
 						name=""
 						ref={answerRef}
 						id=""

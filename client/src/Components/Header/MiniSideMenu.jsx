@@ -21,7 +21,7 @@ function MiniSideMenu() {
 				<MenuIcon />
 			</button>
 			<div
-				className={`w-72 h-48 fixed top-0 ${
+				className={`w-60 h-48 fixed top-0 ${
 					isMenuOpen
 						? "right-0 transition-transform duration-300 ease-in"
 						: "transform translate-x-full"

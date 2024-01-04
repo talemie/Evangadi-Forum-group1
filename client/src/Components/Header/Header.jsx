@@ -16,7 +16,7 @@ function Header() {
 			window.removeEventListener("resize", handleResize);
 		};
 	}, []);
-	console.log(windowWidth);
+	// console.log(windowWidth);
 	const logingOut = () => {
 		localStorage.removeItem("token");
 		navigate("/");
