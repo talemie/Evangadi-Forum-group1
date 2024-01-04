@@ -62,6 +62,7 @@ function SingleQuestion() {
 			setYourAnswer(inputValue);
 		} else {
 			setIsLong(true)
+			return
 		}
 		
 	};
@@ -72,6 +73,9 @@ function SingleQuestion() {
 		if (!yourAnswer) {
 			setError(true);
 			return;
+		}
+		if (isLong) {
+			return
 		}
 		try {
 			const response = await axios({
