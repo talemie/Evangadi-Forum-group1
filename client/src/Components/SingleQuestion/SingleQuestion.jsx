@@ -120,7 +120,7 @@ function SingleQuestion() {
 						Answer From The Community
 					</h1>
 
-					<div className="bg-slate-200 max-h-64 overflow-hidden overflow-y-auto">
+					<div className="bg-slate-100 max-h-64 overflow-hidden overflow-y-auto">
 						{answer?.map((item, i) => (
 							<div key={i} className="   py-2 hover:bg-slate-200">
 								<div className="flex justify-between pl-4 mx-3 border-b border-gray-400 w-2/3 ">
