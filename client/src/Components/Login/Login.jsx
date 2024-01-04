@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../../CommonResources/axios";
 import { FiEye } from "react-icons/fi";
@@ -8,8 +8,15 @@ function Login({ toggleComponent }) {
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
 	const [showPassword, setShowPassword] = useState(false);
-	const navigate=useNavigate()
+	const navigate = useNavigate();
 
+	// input field validation
+	const emailDom = useRef();
+	const passwordDom = useRef();
+	const inputAlert = (dom) => {
+		dom.current.style.backgroundColor = "#fee6e6";
+		dom.current.focus();
+	};
 	// getting the values of email and password
 
 	const handleEmailChange = (e) => {
@@ -21,11 +28,18 @@ function Login({ toggleComponent }) {
 	// Login functionality
 	const handleLoginSubmit = async (e) => {
 		e.preventDefault();
-		if (!email || !password) {
-			setError(true);
+		emailDom.current.style.backgroundColor = "#fff";
+		passwordDom.current.style.backgroundColor = "#fff";
+
+		if (!email) {
+			inputAlert(emailDom);
 			return;
 		}
 
+		if (!password) {
+			inputAlert(passwordDom);
+			return;
+		}
 		// login in
 		try {
 			const { data } = await axios({
@@ -39,10 +53,10 @@ function Login({ toggleComponent }) {
 					"Content-Type": "application/json",
 				},
 			});
-			console.log(data);
+			// setting token and username on local storagge
 			localStorage.setItem("token", data.token);
 			localStorage.setItem("username", data.username);
-			navigate('/home')
+			navigate("/home");
 		} catch (error) {
 			setError(error.response.data);
 			console.log(error.response.data);
@@ -69,10 +83,9 @@ function Login({ toggleComponent }) {
 			<form onSubmit={handleLoginSubmit}>
 				<div>
 					<input
+						ref={emailDom}
 						onChange={handleEmailChange}
-						className={`w-full border p-2 border-gray-300 rounded-md ${
-							error && !email ? "bg-red-200" : ""
-						}`}
+						className={`w-full border p-2 border-gray-300 rounded-md `}
 						type="email"
 						placeholder="email"
 					/>
@@ -80,10 +93,9 @@ function Login({ toggleComponent }) {
 				<br />
 				<div className="relative">
 					<input
+						ref={passwordDom}
 						onChange={handlePasswordChange}
-						className={`w-full border p-2 border-gray-300 rounded-md ${
-							error && !password ? "bg-red-200" : ""
-						}`}
+						className={`w-full border p-2 border-gray-300 rounded-md `}
 						type={showPassword ? "text" : "password"}
 						placeholder="password"
 					/>
