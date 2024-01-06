@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Login from "../Login/Login";
-import Register from "../Register/Register";
+import Login from "../../Components/Login/Login";
+import Register from "../../Components/Register/Register";
 function Landing() {
 	// sliding effect
 	const [activeComponent, setActiveComponent] = useState("login");

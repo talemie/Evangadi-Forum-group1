@@ -1,13 +1,13 @@
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
-import Home from "./Components/Home/Home";
+import Home from "./Pages/Home/Home";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import Landing from "./Components/Landing/Landing";
+import Landing from "./Pages/Landing/Landing";
 import Header from "./Components/Header/Header";
-import SingleQuestion from "./Components/SingleQuestion/SingleQuestion";
+import SingleQuestion from "./Pages/SingleQuestion/SingleQuestion";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "./CommonResources/axios";
-import AskQuestion from "./Components/AskQuestion/AskQuestion";
+import AskQuestion from "./Pages/AskQuestion/AskQuestion";
 // create context 
 const AppStateContext = createContext();
 function App() {

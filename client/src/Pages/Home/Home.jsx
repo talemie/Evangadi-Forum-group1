@@ -1,5 +1,5 @@
 import React from "react";
-import AllQuestions from "../AllQuestions/AllQuestions";
+import AllQuestions from "../../Components/AllQuestions/AllQuestions";
 import { Link } from "react-router-dom";
 import { useAppStateValue } from "../../App";
 
