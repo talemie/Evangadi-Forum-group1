@@ -23,7 +23,7 @@ function Header() {
 	};
 	return (
 		<div className="bg-white w-full px-20 fixed top-0 left-0  shadow z-10">
-			<div className="  flex justify-between  pl-[20px] py-7 ">
+			<div className="  flex justify-between   py-7 ">
 				<Link to="/home">
 					<img
 						className="max-w-none"
